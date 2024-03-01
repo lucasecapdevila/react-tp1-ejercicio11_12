@@ -5,6 +5,7 @@ import Footer from './components/common/Footer';
 import Titulo from './components/Titulo';
 import Formulario from './components/Formulario';
 import { Col, Row } from 'react-bootstrap';
+import ListaNoticias from './components/ListaNoticias';
 
 function App() {
   return (
@@ -19,6 +20,11 @@ function App() {
         <Row>
           <Col md={12}>
             <Formulario />
+          </Col>
+        </Row>
+        <Row>
+          <Col md={12}>
+            <ListaNoticias />
           </Col>
         </Row>
       </main>
