@@ -1,10 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css'
+import BarraNavegacion from './components/common/BarraNavegacion';
 
 function App() {
   return (
     <>
-      <h1>Hola mundo !</h1>
+      <BarraNavegacion />
     </>
   )
 }
