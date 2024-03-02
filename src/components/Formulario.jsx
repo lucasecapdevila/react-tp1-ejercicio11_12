@@ -1,4 +1,4 @@
-import { Form } from "react-bootstrap"
+import { Button, Form } from "react-bootstrap"
 
 const Formulario = () => {
   return (
@@ -15,7 +15,7 @@ const Formulario = () => {
         </Form.Control>
         <Form.Text className="text-danger">Mensaje de error</Form.Text>
       </Form.Group>
-      <Form.Group controlId="formPais">
+      <Form.Group controlId="formPais" className="mb-3">
         <Form.Label>Buscar por país</Form.Label>
         <Form.Control as='select'>
           <option value=''>Elija una opción</option>
@@ -27,6 +27,8 @@ const Formulario = () => {
         </Form.Control>
         <Form.Text className="text-danger">Mensaje de error</Form.Text>
       </Form.Group>
+
+      <Button type="submit">Buscar</Button>
     </Form>
   )
 }
