@@ -1,5 +1,7 @@
 import { useEffect } from "react"
 import { Button, Form } from "react-bootstrap"
+import {paises} from '../../data'
+import {categorias} from '../../data'
 
 const Formulario = () => {
   useEffect(() => {  
@@ -20,12 +22,12 @@ const Formulario = () => {
       <Form.Group controlId="formCategoria" className="mb-3">
         <Form.Label>Buscar por categoría</Form.Label>
         <Form.Control as='select'>
-          <option value=''>Elija una opción</option>
-          <option value='1'>1</option>
-          <option value='2'>2</option>
-          <option value='3'>3</option>
-          <option value='4'>4</option>
-          <option value='5'>5</option>
+          <option value=''>Elija una categoría</option>
+          {categorias.map((categoria) => (
+            <option key={categoria.value} value={categoria.value}>
+              {categoria.label}
+            </option>
+          ))}
         </Form.Control>
         <Form.Text className="text-danger">Mensaje de error</Form.Text>
       </Form.Group>
