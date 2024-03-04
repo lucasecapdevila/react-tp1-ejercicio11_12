@@ -7,3 +7,8 @@
 .mainPage{
   flex-grow: 1;
 }
+
+.imgNoticia{
+  height: 200px;
+  object-fit: cover;
+}

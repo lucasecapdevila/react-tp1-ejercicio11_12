@@ -4,18 +4,9 @@ import Noticia from "./Noticia"
 const ListaNoticias = ({news}) => {
   return (
     <Row className="my-4">
-      <Col sm={6} md={4} lg={3}>
-        <Noticia />
-      </Col>
-      <Col sm={6} md={4} lg={3}>
-        <Noticia />
-      </Col>
-      <Col sm={6} md={4} lg={3}>
-        <Noticia />
-      </Col>
-      <Col sm={6} md={4} lg={3}>
-        <Noticia />
-      </Col>
+      {
+        news.map((result, index) => <Noticia key={index} result={result} />)
+      }
     </Row>
   )
 }
