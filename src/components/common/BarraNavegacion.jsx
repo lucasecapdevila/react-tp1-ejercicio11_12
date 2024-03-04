@@ -2,7 +2,7 @@ import { Container, Nav, Navbar } from "react-bootstrap"
 
 const BarraNavegacion = () => {
   return (
-    <Navbar expand='lg' bg="dark" data-bs-theme="dark" className="py-3">
+    <Navbar expand='lg' data-bs-theme="dark" className="bg-blue py-3">
       <Container>
         <Navbar.Brand href="/">WebNews</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -4,6 +4,10 @@
   min-height: 100vh;
 }
 
+.bg-blue{
+  background:#133769;
+}
+
 .mainPage{
   flex-grow: 1;
 }

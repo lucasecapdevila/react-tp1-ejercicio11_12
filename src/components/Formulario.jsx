@@ -61,7 +61,7 @@ const Formulario = ({setNews}) => {
         <Form.Text className="text-danger">{errors.pais?.message}</Form.Text>
       </Form.Group>
 
-      <Button type="submit">Buscar</Button>
+      <Button type="submit" variant="success">Buscar</Button>
     </Form>
   )
 }

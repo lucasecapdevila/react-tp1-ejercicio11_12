@@ -11,7 +11,7 @@ const Noticia = ({result}) => {
           <Card.Text>{result.description}</Card.Text>
         </Card.Body>
         <Card.Footer className='d-flex'>
-          <a href={result.link} target='_blank' className='btn btn-primary ms-auto align-self-end'>Ver más</a>
+          <a href={result.link} target='_blank' className='btn btn-primary ms-auto'>Ver más</a>
         </Card.Footer>
       </Card>
     </Col>
