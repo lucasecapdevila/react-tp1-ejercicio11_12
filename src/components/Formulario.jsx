@@ -25,7 +25,7 @@ const Formulario = ({setNews}) => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group controlId="formCategoria" className="mb-3">
-        <Form.Label>Buscar por categoría</Form.Label>
+        <Form.Label className="fs-4">Buscar por categoría</Form.Label>
         <Form.Control as='select'
           {
             ...register("categoria",{
@@ -43,7 +43,7 @@ const Formulario = ({setNews}) => {
         <Form.Text className="text-danger">{errors.categoria?.message}</Form.Text>
       </Form.Group>
       <Form.Group controlId="formPais" className="mb-3">
-        <Form.Label>Buscar por país</Form.Label>
+        <Form.Label className="fs-4">Buscar por país</Form.Label>
         <Form.Control as='select'
           {
             ...register("pais",{
