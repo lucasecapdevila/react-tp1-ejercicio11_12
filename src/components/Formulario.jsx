@@ -2,9 +2,17 @@ import { useEffect } from "react"
 import { Button, Form } from "react-bootstrap"
 import {paises} from '../../data'
 import {categorias} from '../../data'
+import { useForm } from "react-hook-form"
 
 const Formulario = () => {
   const apiKey = '39181df8f313285099388f00a02da90ef9161'
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm()
 
   useEffect(() => {  
     consultarAPI()
@@ -19,11 +27,21 @@ const Formulario = () => {
     }
   }
 
+  const onSubmit = () => {
+    console.log('asd');
+  }
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Group controlId="formCategoria" className="mb-3">
         <Form.Label>Buscar por categoría</Form.Label>
-        <Form.Control as='select'>
+        <Form.Control as='select'
+          {
+            ...register("categoria",{
+              required: 'La categoría de las noticias es obligatoria.'
+            })
+          }
+        >
           <option value=''>Elija una categoría</option>
           {categorias.map((categoria) => (
             <option key={categoria.value} value={categoria.value}>
@@ -31,19 +49,25 @@ const Formulario = () => {
             </option>
           ))}
         </Form.Control>
-        <Form.Text className="text-danger">Mensaje de error</Form.Text>
+        <Form.Text className="text-danger">{errors.categoria?.message}</Form.Text>
       </Form.Group>
       <Form.Group controlId="formPais" className="mb-3">
         <Form.Label>Buscar por país</Form.Label>
-        <Form.Control as='select'>
+        <Form.Control as='select'
+          {
+            ...register("pais",{
+              required: 'El país de las noticias es obligatorio.'
+            })
+          }
+        >
           <option value=''>Elija un país</option>
           {paises.map((pais) => (
-          <option key={pais.value} value={pais.value}>
-            {pais.label}
-          </option>
+            <option key={pais.value} value={pais.value}>
+              {pais.label}
+            </option>
           ))}
         </Form.Control>
-        <Form.Text className="text-danger">Mensaje de error</Form.Text>
+        <Form.Text className="text-danger">{errors.pais?.message}</Form.Text>
       </Form.Group>
 
       <Button type="submit">Buscar</Button>
