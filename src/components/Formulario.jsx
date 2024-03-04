@@ -4,13 +4,15 @@ import {paises} from '../../data'
 import {categorias} from '../../data'
 
 const Formulario = () => {
+  const apiKey = '39181df8f313285099388f00a02da90ef9161'
+
   useEffect(() => {  
     consultarAPI()
   }, [])
 
   const consultarAPI = async() => {
     try {
-      const respuesta = await fetch('https://newsdata.io/api/1/news?apikey=pub_39181df8f313285099388f00a02da90ef9161')
+      const respuesta = await fetch(`https://newsdata.io/api/1/news?apikey=pub_${apiKey}`)
       const news = await respuesta.json()
     } catch (error) {
       console.error(error);
@@ -34,12 +36,12 @@ const Formulario = () => {
       <Form.Group controlId="formPais" className="mb-3">
         <Form.Label>Buscar por país</Form.Label>
         <Form.Control as='select'>
-          <option value=''>Elija una opción</option>
-          <option value='A'>A</option>
-          <option value='B'>B</option>
-          <option value='C'>C</option>
-          <option value='D'>D</option>
-          <option value='E'>E</option>
+          <option value=''>Elija un país</option>
+          {paises.map((pais) => (
+          <option key={pais.value} value={pais.value}>
+            {pais.label}
+          </option>
+          ))}
         </Form.Control>
         <Form.Text className="text-danger">Mensaje de error</Form.Text>
       </Form.Group>
