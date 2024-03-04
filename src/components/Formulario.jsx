@@ -1,34 +1,25 @@
-import { useEffect } from "react"
 import { Button, Form } from "react-bootstrap"
 import {paises} from '../../data'
 import {categorias} from '../../data'
 import { useForm } from "react-hook-form"
 
-const Formulario = () => {
+const Formulario = ({setNews}) => {
   const apiKey = '39181df8f313285099388f00a02da90ef9161'
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors }
   } = useForm()
 
-  useEffect(() => {  
-    consultarAPI()
-  }, [])
-
-  const consultarAPI = async() => {
+  const onSubmit = async({pais, categoria}) => {
     try {
-      const respuesta = await fetch(`https://newsdata.io/api/1/news?apikey=pub_${apiKey}`)
-      const news = await respuesta.json()
+      const respuesta = await fetch(`https://newsdata.io/api/1/news?apikey=pub_${apiKey}&country=${pais}&category=${categoria}`)
+      const data = await respuesta.json()
+      setNews(data.results)
     } catch (error) {
       console.error(error);
     }
-  }
-
-  const onSubmit = () => {
-    console.log('asd');
   }
 
   return (

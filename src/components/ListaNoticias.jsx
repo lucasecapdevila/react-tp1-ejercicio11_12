@@ -1,7 +1,7 @@
 import { Col, Row } from "react-bootstrap"
 import Noticia from "./Noticia"
 
-const ListaNoticias = () => {
+const ListaNoticias = ({news}) => {
   return (
     <Row className="my-4">
       <Col sm={6} md={4} lg={3}>

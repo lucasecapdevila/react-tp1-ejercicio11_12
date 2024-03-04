@@ -6,8 +6,11 @@ import Titulo from './components/Titulo';
 import Formulario from './components/Formulario';
 import { Col, Row } from 'react-bootstrap';
 import ListaNoticias from './components/ListaNoticias';
+import { useState } from 'react';
 
 function App() {
+  const [news, setNews] = useState([])
+
   return (
     <>
       <BarraNavegacion />
@@ -19,12 +22,12 @@ function App() {
         </Row>
         <Row>
           <Col md={12}>
-            <Formulario />
+            <Formulario setNews={setNews} />
           </Col>
         </Row>
         <Row>
           <Col md={12}>
-            <ListaNoticias />
+            <ListaNoticias news={news} />
           </Col>
         </Row>
       </main>
